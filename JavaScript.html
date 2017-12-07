@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "text/html" charset = "utf-8">
+		<script>//如需使用外部文件，请在 <script> 标签的 "src" 属性中设置该 .js 文件
+			
+			function myFunction(){
+				x = document.getElementById("demo");//找到内容
+				x.innerHTML = "Hello JavaScript!";//改变内容
+				x.style.color= "#ff0000";//改变样式
+			}
+			
+			function changeImage(){
+				element = document.getElementById('myimage')
+				if (element.src.match("eg_bulbon")){
+					element.src = "E:/软件学习/html/eg_bulboff.gif";
+				}
+				else {
+					element.src = "E:/软件学习/html/eg_bulbon.gif";
+				}
+			}
+			
+			function changeImage2(){
+				element2 = document.getElementById("myimage2");
+				if (element2.src.match("cuhk")){
+					element2.src = "E:/软件学习/html/hust.png";
+				}
+				else{
+					element2.src = "E:/软件学习/html/cuhk(sz).png";//javascript路径名用的是斜线/,而windows用的是反斜线\
+				}
+			}
+						
+			function myFunction2(){
+				var x = document.getElementById("demo2").value;
+				if(x==""||isNaN(x)){
+					alert("Not Numeric");
+				}
+				else{
+					alert("Good job!");
+				}
+			}
+					
+			function myFunction3(){
+				document.write("糟糕！文档消失了。");
+			}
+			
+			var txt="";
+			
+			function messages(){
+				try{
+					var x=document.getElementById("eg").value;
+					if(x=="") throw "empty";
+					if(isNaN(x)) throw "not a number";
+					if(x>10) throw "too high";
+					if(x<5) throw "too low";
+				}
+				catch(err){
+					var y=document.getElementById("mess");
+					y.innerHTML="Error: " + err + ".";
+				}
+			}
+			
+			function validate_required(field, alerttxt){
+				with(field){
+					if(value==null||value==""){
+						alert(alerttxt);return false
+					}
+					else{
+						return true
+					}
+				}
+			}
+			
+			function validate_email(field, alerttxt){
+				with(field){
+					apos = value.indexOf("@")
+					dotpos = value.lastIndexOf(".")
+					if (apos<1||(dotpos-apos)<2){
+						alert(alerttxt);
+						return false
+					}
+					else{
+						return true
+					}
+				}
+			}
+			
+			function validate_form(thisform){
+				with(thisform){
+					if (validate_email(email,"Email must be filled out!")==false){
+						email.focus();
+						return false
+					}
+				}
+			}
+			
+			function displayDate(){
+				var today = new Date();
+				var h=today.getHours();
+				var m=today.getMinutes();
+				var s=today.getSeconds();
+				m=checkTime(m)
+				s=checkTime(s)
+				document.getElementById("demo1").innerHTML=h+":" + m + ":" + s;
+			}
+			
+			function checkTime(i){
+				if(i<10){
+					i = "0" + i;
+				}
+					return i;
+			}
+			
+			function checkCookies(){
+				if(navigator.cookieEnabled==true){
+					alert("已启用 cookie")
+				}
+				else{
+					alert("未启用 cookie")
+				}
+			}
+			
+			function myFunction4(){
+				var x=document.getElementById("fname");
+				x.value=x.value.toUpperCase();
+			}
+			
+			function mOver(obj){
+				obj.innerHTML="谢谢"
+			}
+			
+			function mOut(obj){
+				obj.innerHTML="把鼠标移到上面"
+			}
+			
+			function mDown(obj){
+				obj.style.backgroundColor="#1ec5e5";
+				obj.innerHTML="请释放鼠标按钮";
+			}
+			
+			function mUp(obj){
+				obj.style.backgroundColor="green";
+				obj.innerHTML="请按下鼠标按钮";
+			}
+			
+			function setCookie(c_name, value, expiredays){
+				var exdate = new Date();
+				exdate.setDate(exdate.getDate() + expiredays);
+				document.cookie = c_name + "=" + escape(value) +
+				((expiredays==null)?"":";expires="+exdate.toGMTString())//cookie的形式是"c_name=value;expires=days"
+			}
+			
+			function getCookie(c_name){
+				if(document.cookie.length>0){
+					c_start = document.cookie.indexOf(c_name + "=");
+					if(c_start!=-1){
+						c_start = c_start + c_name.length + 1;//指向等号“=”后面的一个字符
+						c_end = document.cookie.indexOf(";", c_start);//从c_start开始找到第一个分号“；”的位置
+						if(c_end==-1)c_end = document.cookie.length;
+						return unescape(document.cookie.substring(c_start, c_end))
+					}
+				}
+				return "";
+			}
+			
+			function checkCookie(){
+				username = getCookie('username');
+				if(username!=null && username!=""){
+					alert('Welcome again' + username + '!')
+				}
+				else{
+					username = prompt('Please enter your name:',"")
+					if(username!=null && username!=""){
+						setCookie('username', username, 365)
+					}
+				}
+			}
+			
+		</script>
+	</head>
+
+
+	<body onLoad="checkCookie()">
+		
+		
+
+		<div style = "text-align:left; height:50px"><img id="myimage2" onclick="changeImage2()" src="E:\软件学习\html\cuhk(sz).png"></div>
+		<p>Please input a number between 5 and 10:</p>
+		<input id="eg" type="text">
+		<button type="button" onclick="messages()"/>Test Input</button>
+		<p id="mess"></p>
+		
+		<p id="demo">
+		JavaScript 能改变HTML元素的内容。
+		</p>
+		<button type="button" onclick="document.getElementById('demo').style.color='black'">点击这里变颜色</button><br /><br />
+
+		<input id="demo2" type="text">
+		<button type="button" onclick="myFunction2()">点这里</button>
+		
+		<div id="main">
+		<p>The DOM is very useful.</p>
+		<p>本例演示<b>getElementByTagName</b>方法。</p>
+		</div>
+		
+		<div id="div1">
+		<p id="p1">这是一个段落</p>
+		<p id="p2">这是另一个段落</p>
+		</div>
+		
+		<script>
+			document.write("<h1>This is a heading</h1>");
+			document.write("<p>This is a paragraph.</p>");
+			
+			var pi = 3.14;
+			var name = "Bill Gates";
+			var answer = "Yes I am!";
+			var answer = "Nice to meet you";
+			var age = 56, job = "CEO";
+			var y = 123e5;
+			var y = 123e-5;
+			var cars = new Array();
+			cars[0] = "Audi";
+			cars[1] = "BMW";
+			cars[2] = "Volvo";//or var cars = new Array("Audi", "BMW", "Volvo");
+			//or cars = ["Audi", "BMW", "Volvo"];
+			var person = {
+			firstname : "Bill",
+			lastname : "Gates",
+			id : 5566
+			};
+			document.write(person.firstname + "<br />");
+			document.write(person["lastname"] + "<br />");
+			var person = new Object();
+			cars = null;
+			var cars = new Array;
+			var x = new Number;
+			var carname = new String;
+			person.firstname = "Bill";
+			person.lastname = "Gates";
+			person.age = 56;
+			person.eyecolor = "blue";
+			document.write(person.firstname + " is " + person.age + " years old." + "<br />");
+			var message = "Hello World!";
+			x = message.length;
+			carname = message.toUpperCase();
+			document.write(x + "  " + carname + "<br />");
+			var visitor = "PRES";
+			greeting = (visitor == "PRES")?"Dear President":"Dear";
+			var day = new Date().getDay();
+			switch(day){
+				case 0:
+				da = "Today it's Sunday.";
+				break;
+				case 6:
+				da = "Today it's Saturday.";
+				break;
+				default:
+				da = "Looking forward to the Weekend!";
+			}
+			document.write(da + "<br />");
+			var c = document.getElementById("main");
+			var d = c.getElementsByTagName("p");
+			document.write('id为"main"的div中的第一个段落为:' + d[0].innerHTML);
+			document.getElementById("demo").style.color = "red";	
+			
+			var para=document.createElement("p");//
+			var node=document.createTextNode("这是新段落。");//创建文本节点
+			para.appendChild(node);//追加文本
+			
+			var element=document.getElementById("div1");//找到元素,操作要放到目标段落后面
+			element.appendChild(para);//追加新元素
+			
+			var parent=document.getElementById("div1");
+			var child=document.getElementById("p1");
+			parent.removeChild(child);//从父元素中删除子元素p1
+			
+			//DOM 需要清楚您需要删除的元素，以及它的父元素。
+			var child=document.getElementById("p2");
+			child.parentNode.removeChild(child);//一定要先找到父元素节点
+			
+		</script>
+		
+		<div style="text-align:center;"><img id="myimage" onclick="changeImage()" src="E:\软件学习\html\eg_bulboff.gif"></div>
+		<div style="text-align:center;"><button type="button" onclick="myFunction()">点击这里</button></div>
+		<div style="text-align:center; height:50px; line-height:50px;"><button type="button" onclick="myFunction3()">点击这里文档消失</button></div>
+		
+		
+		<p>
+		您只能在HTML输出流中使用<strong>document.write</strong>。
+		如果您在文档已加载后使用它（比如在函数中），则会覆盖整个文档
+		</p>
+		
+		<form action="submitpage.htm" onsubmit="return validate_form(this)" method="post">
+		Email:<input type="text" name="email" size="30">
+		<input type="submit" value="Submit">
+		</form>
+		
+		<p>Hello World!</p>
+		
+		<h1 onclick="this.innerHTML='谢谢！'">请点击文本</h1>
+		
+		
+		<button id="myBtn">点击这里</button>
+		<script>
+		document.getElementById("myBtn").onclick=function(){displayDate()};//有严格的顺序限制
+		</script>
+		<p id="demo1"></p>
+		
+		<p>请输入英文字符：<input type="text" id="fname" onchange="myFunction4()"></p>
+		
+		<p>当您离开输入字段时，会触发将输入文本转换为大写的函数。</p>
+		
+		<div style="text-align:center;"><p onmouseover="mOver(this)" onmouseout="mOut(this)"
+		style="background-color:green;
+				width:200px;
+				height:90px;
+				padding:20px;
+				color:#ffffff;
+				text-align:center;
+				display:inline-block;">把鼠标移到上面</p>
+		<p onmousedown="mDown(this)" onmouseup="mUp(this)"
+		style="background-color:green;
+				color:#ffffff;
+				width:200px;
+				height:90px;
+				padding:20px;
+				font-size:auto;
+				text-align:center;
+				display:inline-block;">请点击这里</p></div>
+				
+		
+		
+	</body>
+</html>

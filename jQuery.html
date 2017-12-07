@@ -1,0 +1,226 @@
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "txt/html" charset = "utf-8">
+			<script type="text/javascript" src="jquery.js"></script>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$("p").click(function(){
+					$(this).hide(500);
+				});
+			});
+			
+			$(document).ready(function(){
+				$("#button1").click(function(){
+					$("p#test").hide(500);//元素id选择
+				});
+				$(".button2").click(function(){
+					$("p.test").toggle(500);//元素类选择
+				});
+				$(".button3").click(function(){
+					$("p.test2").text("jQuery 仍在运行!");
+				});
+				$(".button4").click(function(){
+					$("p").show(200);
+				});
+			});
+			
+			$(document).ready(function(){
+				$(".flip").click(function(){
+					$(".panel").slideToggle("slow");
+				});
+			});
+			
+			$(document).ready(function(){
+				$(".button5").mouseup(function (){
+					$(".div1").animate({
+						left:'+=250px',
+						opacity:'0.5',
+						height:'toggle',
+						width:'+=150px',},
+						'slow');
+					
+					$(".div1").animate({
+						left:'-=250px',
+						opacity:'1',
+						height:'toggle',
+						width:'-=150px',},
+						'slow');
+					
+					$(".div1").animate({
+						fontSize:'1.5em'},
+						'slow');
+				});
+			});
+			
+			$(document).ready(function(){
+				$("#start").click(function(){
+					$(".div2").animate({left:'100px'},5000);
+					
+					$(".div2").animate({fontSize:'3em'},5000);
+				});
+				
+				$("#stop").click(function(){
+					$(".div2").stop();
+				});
+				
+				$("#stop2").click(function(){
+					$(".div2").stop(true);
+				});
+				
+				$("#stop3").click(function(){
+					$(".div2").stop(true, true);
+				});
+			});
+			
+			$(document).ready(function(){
+				$(".button6").click(function(){
+					$(".p1").css("color","red")//或者参数类型为{"background-color":"yellow","font-size":"200%"}
+							.slideUp(2000)
+							.slideDown(2000);//即使连着写，也会有先后顺序
+				});
+			});
+			
+			$(document).ready(function(){
+				$(".button7").click(function(){
+					$("#test1").text(function(i,origText){
+						return "Old text:" + origText + "New text: Hello world!(index:" + i +")";
+						});
+				});
+				$(".button8").click(function(){
+					$("#test2").html("<b>Welcome!</b>");
+				});
+				$(".button9").click(function(){
+					$("#test3").val("Dolly Duck");
+				});
+			});
+			
+			function afterText(){
+				var txt1="<b>I</b>";					//以HTML创建元素
+				var txt2=$("<i></i>").text("love");		//通过jQuery创建元素
+				var txt3=document.createElement("big"); //通过DOM创建元素
+				txt3.innerHTML="Summer!";
+				$("img").after(txt1,txt2,txt3);			//在img之后插入新元素，before是在前面插入
+			};
+			
+			function appendText(){
+				var txt1="<p>风景总是空洞的,</p>";
+				var txt2=$("<P></p>").text("但是那个人的出现，");
+				var txt3=document.createElement("p");
+				txt3.innerHTML="改变了一切";
+				$("#div2").append(txt1,txt2,txt3);		//prepend是在前面插入
+			};
+			
+			$(document).ready(function(){
+				$(".button10").click(function(){
+					$("#div3").addClass("important blue");
+				});
+				$(".button11").click(function(){
+					$("#div4").toggleClass("blue");
+				});
+				$(".button12").click(function(){
+					var txt="";
+					txt += "Width of div:" + $("#div5").width() + "<br />";
+					txt += "Height of div:" + $("#div5").height() + "<br />";
+					txt += "Outer width of div:" + $("#div5").outerWidth() + "<br />";//若outerWidth()参数为true，则返回值包括边框
+					txt += "Outer height of div:" + $("#div5").outerHeight();//若outerHeight()参数为true，则返回值包括边框
+					$("#div5").html(txt);
+				});
+			});
+			</script>
+			
+			<style type="text/css">
+				div.panel,div.flip{
+					margin:0px;
+					padding:5px;
+					text-align:center;
+					background:#e5eecc;
+					border:solid 1px #c3c3c3;
+				}
+				div.panel{
+					height:120px;
+					display:none;
+				}
+				.important{
+					font-size:xx-large;
+					font-weight;
+				}
+				.blue{
+					color:blue;
+				}
+			</style>
+	</head>
+	
+	
+	<body>
+		<h2>This is a heading</h2>
+		<p>If you click on me, I will disappear.</p>
+		<p id="test">This paragraph will disappear if you click the below button</p>
+		<button id="button1" type="button" style="display:block;">Click me</button>
+		<p class="test">This paragraph will disappear(show) if you click the below button</p>
+		<button class="button2" type="button" style="display:block;">Click me</button>
+		<p class="test2">这是测试段落，点击下方按钮</p>
+		<button class="button3" type="button" style="display:block;">测试 jQuery</button>
+		<div class="panel">
+		<p>木叶飞舞的地方，火亦生生不息</p>
+		</div>
+		<div class="flip">请点击这里</div>
+		<button class="button5" type="button" style="display:block;">开始动画</button>
+		<p>默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先
+		把元素的CSS position属性设置为relative、fixed、或absolute。</p>
+		<div style="background:#98bf21;
+					height:100px;
+					width:100px;
+					position:relative;"
+			class="div1">I'm the Sun
+		</div>
+		<button id="start">开始</button>
+		<button id="stop">停止</button>
+		<button id="stop2">停止所有</button>
+		<button id="stop3">停止但要完成</button>
+		<p><b>"开始"</b>按钮会启动动画</p>
+		<p><b>"停止"</b> 按钮会停止当前活动的动画，但允许已排队的动画向前执行。</p>
+		<p><b>"停止所有"</b> 按钮停止当前活动的动画，并清空动画队列；因此元素上的所有动画都会停止。</p>
+		<p><b>"停止但要完成"</b> 会立即完成当前活动的动画，然后停下来。</p>
+		
+		<div style="background:#98bf21;
+					height:100px;
+					width:200px;
+					position:relative;" class="div2">
+					HELLO!
+		</div>
+					
+		<p class="p1">蓦然回首，那人却在，灯火阑珊处</p>
+		<button class="button6">控制上文</button>
+		
+		<p id="test1">文本测试</p>
+		<p id="test2">Html测试</p>
+		<p>Input filed:<input type="text" id="test3" value="Mickey Mouse"></p>
+		<button class="button7">设置文本</button>
+		<button class="button8">设置Html</button>
+		<button class="button9">设置输入值</button>
+		<br />
+		<div style="text-align:center;"><img style="height:300px;width:485px;" src="E:/软件学习/html/Summer_5.jpg" alt="夏日" /></div>
+		<button onclick="afterText()" style="display:block;margin:auto;">在图本后添加文本</button>
+		<div id="div2"><p>图片注释</p></div>
+		<button onclick="appendText()">追加文本</button>
+		
+		<div id="div3">这是一些文本。</div>
+		<div id="div4">这是一些文本。</div>
+		<br />
+		<button class="button10">向第一个div元素添加类</button>
+		<button class="button11">向第二个div元素添加css</button>
+		
+		<div id="div5" style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue;"></div>
+		<br />
+
+		<button class="button12">显示 div 的尺寸</button>
+		<p>outerWidth() - 返回元素的宽度（包括内边距和边框）。</p>
+		<p>outerHeight() - 返回元素的高度（包括内边距和边框）。</p>
+
+
+		<br />
+		<br />
+		<br />
+		<button class="button4" type="button" style="display:block;margin:auto;">全部显示</button>
+	</body>
+</html>

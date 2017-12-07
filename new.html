@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta http-equiv = "Content-Type" content = "txt/html" charset = "utf-8">
+<style>
+ .div1{height:170px;
+ width:490px;
+ margin:60px auto;
+ overflow:hidden;
+ position:absolute;
+ margin:100px auto;}
+ .div1 ul{position:absolute;} 
+ .div1 ul li{height:170px;}
+
+ 
+ </style>
+</head>
+ 
+<body>
+ <script>
+	window.onload=function(){
+		var div1 = document.getElementById('div1'),
+		ul1 = document.getElementById('ul1').getElementsByTagName("li"),
+		index = 0;
+		timer1 = null;
+		timer2 = null;
+		
+		timer1 = setInterval(autoPlay1, 5000);
+
+
+		
+		div1.onmouseover = function(){
+			clearInterval(timer1);
+		}
+
+		
+		div1.onmouseout = function(){
+			setInterval(autoPlay1, 5000);
+		}
+		
+
+		
+		function autoPlay1(){
+			if(++index >= ul1.length)index = 0;
+			changediv1(index);
+		}
+		
+		function changediv1(curIndex){
+			for(var i = 0; i < ul1.length; ++i){
+				ul1[i].style.display = "none";
+			}
+			ul1[curIndex].style.display = "block";
+		}
+		
+	}
+</script>		
+
+ <div class="div1" id='div1'>
+ <ul id="ul1">
+ <li><img src="cuhk(sz).png" alt=""></li>
+ <li><img src="hust.png" alt=""></li>
+ <li><img src="Summer_5.jpg" alt=""></li>
+ </ul>
+ 
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "text/html" charset = "utf-8">
+		<title>Html代码注释</title>
+		<link href="base.css" rel="stylesheet" type="text/css"/>
+		<style type="text/css">
+		table tr td,th{border:1px solid #000;}
+		p{
+			font-size:15px;/*设置文字字号*/
+			color:pink;/*设置文字颜色*//*css中的注释用这种表示方式*/
+			font-weight:bold;/*设置字体加粗*/
+		}/*嵌入式css*/
+		</style>
+		<!--css的样式遵循就近原则-->
+		
+	</head>
+	
+	<body>
+		<div id='baidumap'></div>s
+		<!--在线咨询 begin-->
+		<div>
+			<p style="color:red; font-size:20px">模拟</p><!--内联式css-->
+		</div>
+		<!--在线咨询 end-->
+		<p><code>cout << "Hello World!"</code></p>
+		<pre>
+		var message = '欢迎';
+		for(var i=1;i<=10;i++)<br />
+		{<br /><!--会换两次行-->
+			alert(message);<br />
+		}<br />
+		</pre>
+		<h1>诗&nbsp&nbsp&nbsp词</h1>
+		<hr />
+		<div id="体裁"><ul>
+		<h3>体裁</h3>
+			<li>唐诗</li>
+			<li>宋词</li>
+			<li>元曲</li>
+		</div></ul>
+		<div id="朝代"><ol class="first">
+		<h3>朝代</h3>
+			<li>唐代前
+				<ol>
+				<li>三国</li>
+				<li>两晋</li>
+				<li>南北朝</li>
+				</ol>
+			</li>
+		</div></ol>
+		<div>著名的古诗词</div>
+		<h2 >滁州西涧</h2>
+		<p>独怜幽草涧边生，上有<span>黄鹂</span>深树鸣</p>
+		<p>春潮带雨晚来急，野渡<strong>无人</strong>舟自横</p>
+		<hr />
+		<h2>定风波</h2>
+		<p class="first">莫听穿林打叶声，何妨吟啸且徐行，<span><span>竹杖</span>芒鞋轻胜马</span>，谁怕？一蓑<em>烟雨</em>任平生</p>
+		<hr />
+		<p>庄生晓梦迷<q>蝴蝶</q>，<span class="setGreen bigSize">望帝</span>春心托杜鹃</p>
+		<hr />
+		<p><blockquote>明月出天山，苍茫云海间。长风几万里，
+			吹度<span id="setPurple">玉门</span>关。汉下白登道，胡窥青海湾。
+			</blockquote>
+		</p>
+		<hr />
+		<p>
+		独在异乡为异客,<br />
+		每逢佳节倍思亲。<br />
+		遥知兄弟登高处,<br />
+		遍插茱萸少一人。<br />
+		<table summary="诗词简介"><!--表格-->
+			<caption>诗词简介</caption>
+			<tbody>
+				<tr>
+					<th>题目</th>
+					<th>作者</th>
+					<th>朝代</th>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td><a href="https://baike.baidu.com/item/%E9%A2%98%E8%A5%BF%E6%9E%97%E5%A3%81" title="题西林壁" target="_blank">题西林壁</a></td>
+					<td>苏轼</td>
+					<td>北宋</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td><a href="https://baike.baidu.com/item/%E5%AE%9A%E9%A3%8E%E6%B3%A2%C2%B7%E8%8E%AB%E5%90%AC%E7%A9%BF%E6%9E%97%E6%89%93%E5%8F%B6%E5%A3%B0" title="定风波" target="_blank">定风波</a></td>
+					<td>苏轼</td>
+					<td>北宋</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td><a href="https://baike.baidu.com/item/%E9%94%A6%E7%91%9F/396?fr=aladdin" title="锦瑟" target="_blank">锦瑟</a></td>
+					<td>李商隐</td>
+					<td>唐朝</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="http://www.cuhk.edu.cn/" title="香港中文大学（深圳）" target="_blank"><img src = "E:\重要的文档资料\照片\研究生\logo.png" alt="港中深" title="logo"></a>
+		<p><address>深圳市龙岗区龙翔大道2001号</address><p>
+		<a href="mailto:yy@imooc.com;pp@imooc.com?bcc=imoocAdmin@imooc.com&subject=诗词鉴赏&body=收集到的诗词">发送</a>
+	<form name="iForm" method='post' action="save.php">
+		<label for="username">用户名:</label>
+		<input type="text" name="username" value="Your name"/>
+		<label for="pass">密码：</label>
+		<input type="password" name="pass" placeholder='*****'/><br />
+		
+		<label for='email'>输入你的邮箱地址:</label>
+		<input type='email' id='email' placeholder='Enter email'><br />
+		
+		<label>联系我们</label>
+		<textarea rows="10" cols="30">在这里输入内容...</textarea><br />
+		
+		<label for='radiolove'>你是否喜欢旅游？</label><br />
+		<input type="radio" value="喜欢" name="radiolove" checked="checked"/>喜欢
+		<input type="radio" value="不喜欢" name="radiolove"/>不喜欢
+		<input type="radio" value="无所谓" name="radiolove"/>无所谓
+		<br /><br />
+		<label for='checkbox'>你对哪些运动感兴趣?</label><br />
+		<input type="checkbox" id="checkbox1" value="跑步"><label for='checkbox1'>跑步</label>
+		<input type="checkbox" name="checkbox2" value="打球"><label for='checkbox2'>打球</label>
+		<input type="checkbox" name="checkbox3" value="登山"><label for='checkbox3'>登山</label>
+		<input type="checkbox" name="checkbox4" value="健身"><label for='checkbox4'>健身</label><br />
+		<label>爱好：</label><br />
+		<select>
+			<option value='读书'>读书</option>
+			<option value='运动'>运动</option>
+			<option value='音乐'>音乐</option>
+			<option value='旅游'>旅游</option>
+			<option value='购物' selected='selected'>购物</option>
+		</select><br />
+		<label>爱好：</label><br />
+		<select multiple='multiple'>
+			<option value='读书'>读书</option>
+			<option value='运动'>运动</option>
+			<option value='音乐'>音乐</option>
+			<option value='旅游'>旅游</option>
+			<option value='购物'>购物</option>
+		</select><br />
+		<input type='submit' value='提交' name='submitBtn'/>
+		<input type='reset' value='重置' name='resetBtn'/>
+		</form>
+		<p><span class="oldPrice">原价:300元</span> 现价:200元</p>
+		<div>
+			<span>333</span>
+			<span>444</span>
+			<span>555</span>
+		</div>
+		<div id="div1">
+			宽度为262px
+		</div><br />
+		<div id="div2">div2</div><br />
+		<h1>青玉案</h1><br />
+		<p>东风夜放花千树，更吹落，星如雨。宝马香车雕满路，凤箫声动，玉壶光转，一夜鱼龙舞。</p>
+		<div id="box1">box1
+			<div id="box2">相对参照元素进行定位</div>
+		</div>
+		<div class="div3">定宽元素，水平居中</div>
+		<div class="div3">
+			<table class="table1">
+			<tbody>
+				<tr><td>
+				<ul>
+					<li>我是第一行文本</li>
+					<li>我是第二行文本</li>
+					<li>我是第三行文本</li>
+				</ul>
+				</td></tr>
+			</tbody>
+			</table>
+		</div>
+		<div class="container1">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		<div class="container2">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		<div class="container3">
+			hi,goodmorning!
+		</div>
+		<div class="container4">
+			<a herf ="" title="我的github主页">github主页</a>
+		</div>
+	</body>
+</html>

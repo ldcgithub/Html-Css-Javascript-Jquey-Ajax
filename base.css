@@ -1,0 +1,159 @@
+/*	(*{
+		color:red;
+	}通用选择器)*/
+p span{
+	font-weight:bold;
+	color:blue;
+	display:block;/*设置为块状元素*/
+}
+p/*选择器*/{
+	text-indent:2em;/*首行缩进*/
+	color:orange!important;/*可继承*/
+	border:1px solid green;
+	line-height:1.5em;/*行高*/
+	letter-spacing:10px;/*字母间距*/
+	word-spacing:10px;/*单词间距*/
+	display:inline;/*设置为内联函数*/
+}/*权值为1*/
+h1{
+	font-weight:normal;
+	color:red;
+	text-align:center;/*在父元素中居中*/
+	display:inline-block;/*内联块状元素*/
+}
+.setGreen{
+	color:green;
+}/*权值为10*/
+.bigSize{
+	font-size:25px;
+}/*类选择其可以用多次&可以叠加*/
+#setPurple{
+	color:purple;
+}/*id 选择器只能用一次&不可叠加*//*权值为100*/
+.first>span{border:1px solid red;
+			color:yellow;
+		}/*子选择器 影响嵌套的第一代*/
+.all li{
+		color:red
+	}/*包含选择器*/
+a:hover{
+	text-decoration:underline;/*下划线*/
+	font-style:italic;/*斜体*/
+	color:rgb(20%,33%,25%);
+}/*伪类选择符*/
+/*h1,span{
+	color:red;权值为1+1=2
+}分组选择*/
+body{
+	/*font-family:"Microsoft Yahei";
+	font-size:12px;*/
+	font:/*italic*/ small-caps/*小写变大写*/ bold 12px/1.5em "宋体",sans-serif;
+	color:#666;
+}
+.oldPrice{
+	color:grey;
+	text-decoration:line-through;
+	font-style:italic;
+}
+div{
+	border:2px solid red;
+	border-bottom:1px solid red;
+	border-right:1px solid red;
+	border-top:1px solid red;
+	border-left:1px solid red;
+/*  border-width:2px;
+	border-style:solid(实线)dashed(虚线)dotted(点线);
+	border-color:red(#888)16进制颜色(本是8位数888888,但每两位相同可以缩写）;
+	分开写*/
+}
+div{
+	width:200px;
+	height:20px;
+	padding:20px 10px 15px 30px;/*上、右、下、左*/
+	padding:20px 10px;/*上下、左右*/
+	border:1px solid red;
+	margin:10px 20px 15px 30px;/*上、右、下、左*/
+	margin:10px 20px;/*上下、左右*/
+}
+#box1{
+	width:300px;
+	height:100px;
+	position:relative;
+}
+#box2{
+	position:absolute;
+	top:20px;
+	left:30px;
+}
+#div1{
+	float:left;
+}
+#div2{
+	float:right;
+}
+img{
+	position:absolute;/*absolute、relative、fixed*/
+	left:300px;
+	top:15px;
+}
+.div3{
+	border:1px solid red;
+	width:200px;
+	margin:20px auto;
+	text-align:center;
+}
+.table1{
+	border:1px dotted;
+	margin:0 auto;
+}
+.container1{
+	border:1px solid red;
+	width:200px;
+	margin:20px auto;
+	text-align:center;
+}
+.container1 ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:inline;
+}
+.container1 li{
+	margin-right:8px;
+	display:inline;
+}
+.container2{
+	float:left;
+	position:relative;
+	left:50%;
+}
+
+.container2 ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	position:relative;
+	left:-28%;
+}
+.container2 li{
+	float:left;
+	display:inline-block;
+	margin-right:20px;
+}
+.container3{
+	color:white;
+	height:100px;
+	line-height:100px;
+	background:#999;
+	display:table-cell;
+	vertical-align:middle;
+}
+.container4{
+	margin:0px auto;
+}
+.container4 a{
+	position:absolute;
+	width:200px;
+	background:#ccc;
+	text-align:center;
+}
